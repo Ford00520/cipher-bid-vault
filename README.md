@@ -1,12 +1,14 @@
-# FHEVM Hardhat Template
+# Cipher Bid Vault
 
-A Hardhat-based template for developing Fully Homomorphic Encryption (FHE) enabled Solidity smart contracts using the
-FHEVM protocol by Zama.
+Sealed-bid auction demo on FHEVM. This repo contains Solidity
+contracts and a React (Vite + shadcn/ui) frontend to create
+auctions, submit encrypted bids, and reveal winners using
+FHE-enabled on-chain computation.
 
 ## Quick Start
 
-For detailed instructions see:
-[FHEVM Hardhat Quick Start Tutorial](https://docs.zama.ai/protocol/solidity-guides/getting-started/quick-start-tutorial)
+For FHEVM setup details, see the official guide:
+[FHEVM Hardhat Quick Start](https://docs.zama.ai/protocol/solidity-guides/getting-started/quick-start-tutorial)
 
 ### Prerequisites
 
@@ -33,7 +35,7 @@ For detailed instructions see:
    npx hardhat vars set ETHERSCAN_API_KEY
    ```
 
-3. **Compile and test**
+3. **Compile and test (contracts)**
 
    ```bash
    npm run compile
@@ -68,12 +70,14 @@ For detailed instructions see:
 ## 📁 Project Structure
 
 ```
-fhevm-hardhat-template/
+cipher-bid-vault/
 ├── contracts/           # Smart contract source files
-│   └── FHECounter.sol   # Example FHE counter contract
+│   ├── FHECounter.sol   # Example FHE counter contract
+│   └── CipherBidVault.sol # Sealed-bid auction contract
 ├── deploy/              # Deployment scripts
 ├── tasks/               # Hardhat custom tasks
 ├── test/                # Test files
+├── frontend/            # Vite + React app
 ├── hardhat.config.ts    # Hardhat configuration
 └── package.json         # Dependencies and scripts
 ```
@@ -97,7 +101,7 @@ fhevm-hardhat-template/
 
 ## 📄 License
 
-This project is licensed under the BSD-3-Clause-Clear License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ## 🆘 Support
 
@@ -107,4 +111,19 @@ This project is licensed under the BSD-3-Clause-Clear License. See the [LICENSE]
 
 ---
 
-**Built with ❤️ by the Zama team**
+**Built with ❤️ by the Cipher Bid Vault contributors**
+
+## 🖥️ Frontend
+
+The app lives in `frontend/`.
+
+Install and run the dev server:
+
+```
+cd frontend
+npm install
+npm run dev
+```
+
+Configure contract addresses in `frontend/src/lib/generated/` or by
+running `frontend/scripts/genabi.mjs` if provided.
