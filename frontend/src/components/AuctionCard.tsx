@@ -139,6 +139,8 @@ const AuctionCard = ({
           className="w-full" 
           disabled={status !== "active"}
           variant={status === "active" ? "default" : "outline"}
+          type="button"
+          aria-label={status === "active" ? "Place encrypted bid" : status === "revealing" ? "Revealing bids" : "View results"}
           onClick={() => {
             if (!isConnected) {
               toast({
@@ -162,6 +164,8 @@ const AuctionCard = ({
           className="w-full"
           variant="secondary"
           disabled={!isConnected || decLoading}
+          type="button"
+          aria-label="Decrypt my bid"
           onClick={async () => {
             if (!isConnected) {
               toast({ title: "Wallet not connected", description: "Connect to decrypt your bid", variant: "destructive" });
