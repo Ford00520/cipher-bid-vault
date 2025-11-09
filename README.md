@@ -4,6 +4,11 @@
 
 Cipher Bid Vault is a cutting-edge decentralized auction platform that leverages Fully Homomorphic Encryption (FHE) to ensure complete privacy and fairness in the bidding process. Built on FHEVM, this system allows users to place encrypted bids that remain completely private until the auction ends, ensuring no bid manipulation or front-running.
 
+## 🎥 Demo
+
+- **Online Demo**: https://cipher-bid-vault.vercel.app/
+- **Video Walkthrough**: `demo.mp4` (located at the project root). Open it locally to see a full end‑to‑end flow of connecting a wallet, creating an auction, placing encrypted bids, and revealing the winner.
+
 ## ✨ Key Features
 
 - **🔒 Fully Encrypted Bids**: All bids are encrypted using FHE and remain private until auction completion

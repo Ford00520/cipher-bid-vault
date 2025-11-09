@@ -2,7 +2,11 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   // Fix for Vercel deployment with multiple lockfiles
-  outputFileTracingRoot: process.env.VERCEL ? undefined : __dirname,
+  outputFileTracingRoot: process.env.VERCEL ? process.cwd() : __dirname,
+  
+  // Ensure proper static export for Vercel
+  trailingSlash: false,
+  
   
   headers() {
     // Required by FHEVM 
@@ -38,6 +42,13 @@ const nextConfig: NextConfig = {
         tls: false,
       };
     }
+    
+    // Ensure path aliases work correctly in Vercel
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      '@': require('path').resolve(__dirname),
+    };
+    
     return config;
   }
 };
