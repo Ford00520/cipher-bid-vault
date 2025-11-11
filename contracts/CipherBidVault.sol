@@ -127,7 +127,7 @@ contract CipherBidVault is SepoliaConfig {
         }
 
         // Missing event emission - BUG 3
-        // emit BidPlaced(auctionId, msg.sender, block.timestamp);
+        emit BidPlaced(auctionId, msg.sender, block.timestamp);
     }
 
     /// @notice End an auction (can be called by anyone after endTime)
