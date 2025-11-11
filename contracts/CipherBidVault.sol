@@ -98,7 +98,6 @@ contract CipherBidVault is SepoliaConfig {
         externalEuint64 encryptedBid,
         bytes calldata inputProof
     ) external {
-        // Missing auction existence check
         require(auctionId > 0 && auctionId <= auctionCounter, "Invalid auction ID");
         require(!auctions[auctionId].ended, "Auction has ended");
         require(block.timestamp < auctions[auctionId].endTime, "Auction time expired");
