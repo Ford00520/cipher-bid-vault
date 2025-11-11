@@ -24,7 +24,7 @@ export function CreateAuctionDialog({ onCreate, disabled }: CreateAuctionDialogP
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setMessage(null);
-    if (!title.trim() || !description || !startingBid) { 
+    if (!title || !description || !startingBid) { 
       setMessage("Please fill all required fields");
       return;
     }
