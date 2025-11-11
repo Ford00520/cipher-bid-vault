@@ -62,7 +62,7 @@ export function AuctionCard({
       return;
     }
     const value = Number(bidInput || "0");
-    if (!Number.isFinite(value) || value < 0) {
+    if (!Number.isFinite(value) || value <= 0) {
       setMessage("Enter a valid positive bid amount");
       return;
     }
