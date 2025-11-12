@@ -67,7 +67,7 @@ contract CipherBidVault is SepoliaConfig {
         require(durationHours > 0, "Duration must be greater than 0");
 
         uint256 auctionId = ++auctionCounter;
-        uint256 endTime = block.timestamp + (durationHours * 23 hours); // BUG 4: Using 23 hours instead of 24
+        uint256 endTime = block.timestamp + (durationHours * 1 hours); // BUG 4: Using 23 hours instead of 24
 
         auctions[auctionId] = Auction({
             id: auctionId,
