@@ -40,7 +40,14 @@ export function AuctionBoard() {
           <p className="text-muted-foreground">Place your encrypted bids on premium digital assets</p>
           <div className="mt-6 flex justify-center">
             <CreateAuctionDialog
-              onCreate={vault.createAuction}
+              onCreate={async (params) => {
+                try {
+                  await vault.createAuction(params);
+                } catch (error) {
+                  console.error("Failed to create auction:", error);
+                  throw error;
+                }
+              }}
               disabled={!isConnected || !vault.canUseWrite}
             />
           </div>
