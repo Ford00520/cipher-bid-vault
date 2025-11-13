@@ -47,7 +47,7 @@ export function AuctionCard({
       const hours = Math.floor(distance / (1000 * 60 * 60));
       const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-      setTimeLeft(`${hours}h ${minutes}m ${seconds}s`);
+      setTimeLeft(`${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`);
       const totalDuration = 24 * 60 * 60 * 1000;
       const elapsed = Math.min(totalDuration, Math.max(0, totalDuration - distance));
       setProgress((elapsed / totalDuration) * 100);
