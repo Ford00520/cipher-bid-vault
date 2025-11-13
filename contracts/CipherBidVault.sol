@@ -101,7 +101,7 @@ contract CipherBidVault is SepoliaConfig {
         require(auctionId > 0 && auctionId <= auctionCounter, "Invalid auction ID");
         require(!auctions[auctionId].ended, "Auction has ended");
         require(block.timestamp < auctions[auctionId].endTime, "Auction time expired");
-        // require(msg.sender != auctions[auctionId].creator, "Creator cannot bid");
+        require(msg.sender != auctions[auctionId].creator, "Creator cannot bid");
 
         euint64 bidAmount = FHE.fromExternal(encryptedBid, inputProof);
         bidAmount = FHE.allowThis(bidAmount);
