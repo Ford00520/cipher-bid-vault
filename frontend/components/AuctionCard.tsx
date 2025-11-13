@@ -129,7 +129,7 @@ export function AuctionCard({
             </label>
             <input
               type="number"
-              className="w-full px-3 py-2 bg-input border border-border rounded-md text-sm text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+              className="w-full rounded-md text-sm text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
               placeholder="0"
               value={bidInput}
               onChange={(e) => setBidInput(e.target.value)}
