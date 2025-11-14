@@ -9,6 +9,7 @@ import {SepoliaConfig} from "@fhevm/solidity/config/ZamaConfig.sol";
 contract CipherBidVault is SepoliaConfig {
     uint256 public constant AUCTION_DURATION = 24 hours;
     uint256 private auctionCounter;
+    uint256 private constant MIN_BID_INCREMENT = 100; // Minimum bid increment for gas optimization
 
     struct Auction {
         uint256 id;
