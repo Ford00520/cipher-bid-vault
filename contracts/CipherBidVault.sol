@@ -143,9 +143,16 @@ contract CipherBidVault is SepoliaConfig {
         emit AuctionEnded(auctionId);
     }
 
-    /// @notice Finalize an auction and reveal the winner
+    /// @notice Decrypt and reveal the highest bid for an auction
     /// @param auctionId The ID of the auction
-    /// @dev This function should be called after endAuction to determine the winner
+    /// @return bidAmount The decrypted bid amount
+    function decryptBid(uint256 auctionId) external view returns (uint64 bidAmount) {
+        require(auctionId > 0 && auctionId <= auctionCounter, "Invalid auction ID");
+        require(auctions[auctionId].ended, "Auction not ended");
+        
+        // Implementation for encrypted bid decryption
+        return 0; // Placeholder for FHE decryption
+    }
     function finalizeAuction(uint256 auctionId) external {
         require(auctionId > 0 && auctionId <= auctionCounter, "Invalid auction ID");
         require(auctions[auctionId].ended, "Auction not ended");
