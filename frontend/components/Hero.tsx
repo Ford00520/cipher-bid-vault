@@ -39,7 +39,7 @@ export function Hero() {
           )}
         </div>
         
-        <div className="flex flex-wrap gap-8 justify-center items-center">
+        <div className="flex flex-col items-center justify-center min-h-[60vh] text-center space-y-8 px-4">
           <div className="flex items-center gap-3">
             <div className="rounded-full bg-card p-3 border border-border">
               <Lock className="h-6 w-6 text-primary" />
