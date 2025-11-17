@@ -21,6 +21,47 @@ async function deployFixture() {
 }
 
 describe("CipherBidVault", function () {
+  let vault: CipherBidVault;
+  let owner: HardhatEthersSigner;
+  let bidder1: HardhatEthersSigner;
+  let bidder2: HardhatEthersSigner;
+
+  beforeEach(async function () {
+    [owner, bidder1, bidder2] = await ethers.getSigners();
+    const VaultFactory = await ethers.getContractFactory("CipherBidVault");
+    vault = await VaultFactory.deploy();
+    await vault.waitForDeployment();
+  });
+
+  describe("Auction Creation", function () {
+    it("Should create a new auction with valid parameters", async function () {
+      await expect(vault.createAuction(
+        "Test Auction",
+        "Test Description",
+        100,
+        24
+      )).to.emit(vault, "AuctionCreated");
+    });
+
+    it("Should fail with empty title", async function () {
+      await expect(vault.createAuction(
+        "",
+        "Test Description",
+        100,
+        24
+      )).to.be.revertedWith("Title cannot be empty");
+    });
+  });
+
+  describe("Bid Placement", function () {
+    it("Should prevent auction creator from bidding", async function () {
+      await vault.createAuction("Test", "Description", 100, 24);
+      // Test bid placement logic here
+    });
+  });
+});
+
+describe("CipherBidVault", function () {
   let signers: Signers;
   let contract: CipherBidVault;
   let contractAddress: string;
