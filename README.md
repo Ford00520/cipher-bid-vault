@@ -6,7 +6,7 @@ Cipher Bid Vault is a cutting-edge decentralized auction platform that leverages
 
 ## 🎥 Demo
 
-- **Online Demo**: https://cipher-bid-vault.vercel.app/
+- **Online Demo**: https://cipher-bid-vault-msf.vercel.app/
 - **Video Walkthrough**: `demo.mp4` (located at the project root). Open it locally to see a full end‑to‑end flow of connecting a wallet, creating an auction, placing encrypted bids, and revealing the winner.
 
 ## ✨ Key Features
